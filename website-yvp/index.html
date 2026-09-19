@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Yayasan Vlinder Papua (YVP), Biak Numfor: yayasan sosial dan kemanusiaan bidang kesehatan untuk eliminasi kusta, TBC, HIV/AIDS, dan malaria di Tanah Papua.">
+<meta property="og:title" content="Yayasan Vlinder Papua">
+<meta property="og:description" content="Bersama pemerintah mengeliminasi kusta, TBC, HIV, dan malaria di Biak Numfor, Papua.">
+<title>Yayasan Vlinder Papua</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<style>
+:root{
+  --bg:#f7f5ef; --surface:#ffffff; --surface-2:#ede9de;
+  --ink:#1d2a26; --ink-2:#4a5a55; --ink-3:#7a8883; --line:#d9d3c4;
+  --teal:#0f6b5c; --teal-2:#0a4f44; --teal-soft:#dcefe9;
+  --ochre:#c2661a; --ochre-soft:#f6e4d2;
+  --c1:#08866c; --c2:#c2661a; --grid:#e3ded2;
+  --wa:#1f9d55; --focus:#2b8a78; --radius:12px;
+  --display:'Lora',Georgia,'Times New Roman',serif;
+  --body:'Plus Jakarta Sans','Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121a18; --surface:#1a2522; --surface-2:#22302c;
+    --ink:#eef0ea; --ink-2:#bcc7c2; --ink-3:#8c9a95; --line:#31413c;
+    --teal:#4fb8a1; --teal-2:#7ed1bd; --teal-soft:#1c3b34;
+    --ochre:#e8944f; --ochre-soft:#3d2a18; --c1:#1f9a7f; --c2:#cf7a35; --grid:#2c3a35; --focus:#7ed1bd;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121a18; --surface:#1a2522; --surface-2:#22302c;
+  --ink:#eef0ea; --ink-2:#bcc7c2; --ink-3:#8c9a95; --line:#31413c;
+  --teal:#4fb8a1; --teal-2:#7ed1bd; --teal-soft:#1c3b34;
+  --ochre:#e8944f; --ochre-soft:#3d2a18; --c1:#1f9a7f; --c2:#cf7a35; --grid:#2c3a35; --focus:#7ed1bd;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+a{color:var(--teal);text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.2;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.6rem,3vw,2.2rem)} h3{font-size:1.2rem} h4{font-size:1rem;font-family:var(--body);font-weight:700}
+p{margin:0} img{max-width:100%;display:block}
+.wrap{max-width:1100px;margin:0 auto;padding-inline:20px}
+.eyebrow{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ochre);font-weight:800}
+.muted{color:var(--ink-2)} .small{font-size:.9rem} .tiny{font-size:.78rem;color:var(--ink-3)}
+.note{background:var(--ochre-soft);border-left:4px solid var(--ochre);padding:12px 16px;border-radius:6px;font-size:.92rem}
+.num{font-variant-numeric:tabular-nums}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--surface);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand svg{width:48px;height:48px;flex:none}
+.brand b{font-family:var(--display);font-size:1.05rem;display:block;line-height:1.1}
+.brand span{font-size:.7rem;color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase}
+.links{display:flex;gap:2px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.links a{font-size:.86rem;font-weight:600;color:var(--ink-2);text-decoration:none;padding:6px 9px;border-radius:6px}
+.links a:hover{background:var(--surface-2);color:var(--ink)}
+.links a.cta{background:var(--ochre);color:#fff;margin-left:6px}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:6px;padding:6px 10px;color:var(--ink);font:inherit}
+@media (max-width:960px){
+  .menu-btn{display:block}
+  .links{display:none;width:100%;flex-direction:column;align-items:stretch;padding-bottom:8px}
+  .links.open{display:flex} .links a.cta{margin-left:0}
+  .nav{flex-wrap:wrap}
+}
+/* social */
+.social{display:flex;gap:8px;flex-wrap:wrap}
+.social a{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;font-size:.85rem;font-weight:600;text-decoration:none;color:var(--ink);background:var(--surface)}
+.social a:hover{border-color:var(--teal)} .social svg{width:18px;height:18px}
+.wa-float{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:40;background:var(--wa);color:#fff;border-radius:999px;padding:12px 18px;display:flex;align-items:center;gap:8px;font-weight:700;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.wa-float svg{width:22px;height:22px}
+
+/* hero */
+.hero{padding-block:52px 40px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--surface) 0%,var(--bg) 100%)}
+.hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(2rem,4.4vw,3.1rem);margin-block:10px 16px}
+.hero h1 em{font-style:italic;color:var(--teal)}
+.hero p.lead{font-size:1.08rem;color:var(--ink-2);max-width:60ch}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.btn{display:inline-block;padding:12px 20px;border-radius:8px;font-weight:700;text-decoration:none;font-size:.95rem;border:0;cursor:pointer;font-family:inherit}
+.btn.primary{background:var(--teal);color:#fff} .btn.ghost{border:1.5px solid var(--teal);color:var(--teal);background:transparent} .btn.ochre{background:var(--ochre);color:#fff}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.stat b{font-family:var(--display);font-size:1.75rem;display:block;color:var(--teal);font-variant-numeric:tabular-nums;line-height:1.1}
+.stat span{font-size:.82rem;color:var(--ink-2)} .stat small{display:block;font-size:.68rem;color:var(--ink-3);margin-top:6px}
+
+section{padding-block:56px} section + section{border-top:1px solid var(--line)}
+.sec-head{max-width:66ch;margin-bottom:28px} .sec-head p{margin-top:10px;color:var(--ink-2)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px} @media (max-width:860px){.two{grid-template-columns:1fr}}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:16px} @media (max-width:860px){.three{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.card h3{margin-bottom:8px} .card ul{margin:10px 0 0;padding-left:18px;color:var(--ink-2)} .card li{margin-bottom:5px}
+.legal dt{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:700;margin-top:12px}
+.legal dd{margin:2px 0 0;font-weight:600}
+
+/* organ */
+.organ{display:grid;grid-template-columns:repeat(3,1fr);gap:16px} @media (max-width:860px){.organ{grid-template-columns:1fr}}
+.organ .card h3{color:var(--teal)}
+.person{display:flex;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.person:first-of-type{border-top:0}
+.avatar{width:44px;height:44px;border-radius:50%;background:var(--teal-soft);color:var(--teal-2);display:grid;place-items:center;font-weight:800;font-size:.9rem;flex:none}
+.person b{display:block;font-size:.95rem;line-height:1.25} .person span{font-size:.8rem;color:var(--ink-3)}
+
+/* programs */
+.programs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:980px){.programs{grid-template-columns:1fr 1fr}} @media (max-width:520px){.programs{grid-template-columns:1fr}}
+.prog{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;gap:8px}
+.tag{align-self:flex-start;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:var(--teal-soft);color:var(--teal-2)}
+.prog.lead-prog{border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-soft)} .prog p{color:var(--ink-2);font-size:.93rem}
+
+/* policy */
+.policy{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:start} @media (max-width:860px){.policy{grid-template-columns:1fr}}
+.quote{font-family:var(--display);font-style:italic;font-size:1.15rem;line-height:1.5;border-left:4px solid var(--ochre);padding-left:16px;color:var(--ink)}
+.quote cite{display:block;font-style:normal;font-family:var(--body);font-size:.8rem;color:var(--ink-3);margin-top:8px}
+
+/* data tabs */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:22px}
+.tab{padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);font-weight:700;font-family:inherit;font-size:.92rem;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--teal);color:#fff;border-color:var(--teal)}
+.panel{display:grid;gap:18px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px} @media (max-width:980px){.tiles{grid-template-columns:1fr 1fr}}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.tile b{display:block;font-family:var(--display);font-size:1.6rem;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.1}
+.tile span{font-size:.8rem;color:var(--ink-2)}
+.tile.warn b{color:var(--ochre)}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:18px} @media (max-width:860px){.charts{grid-template-columns:1fr}}
+.fig{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 12px;min-width:0}
+.fig h4{margin-bottom:2px} .fig .sub{font-size:.8rem;color:var(--ink-3);margin-bottom:10px}
+.fig svg{width:100%;height:auto;display:block;overflow:visible}
+.fig .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.78rem;color:var(--ink-2);margin-top:8px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.fig .src{font-size:.72rem;color:var(--ink-3);margin-top:8px}
+.tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--bg);font-size:.78rem;padding:6px 9px;border-radius:6px;z-index:50;display:none;white-space:nowrap}
+.meaning{background:var(--teal-soft);border-radius:var(--radius);padding:18px 20px}
+.meaning h4{color:var(--teal-2);margin-bottom:6px} .meaning p{color:var(--ink);font-size:.95rem}
+.meaning ul{margin:6px 0 0;padding-left:18px;font-size:.95rem}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);background:var(--surface-2)}
+td.r{text-align:right;font-variant-numeric:tabular-nums}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media (max-width:980px){.gallery{grid-template-columns:repeat(3,1fr)}} @media (max-width:600px){.gallery{grid-template-columns:1fr 1fr}}
+.gallery figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;cursor:pointer}
+.gallery img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.gallery figcaption{padding:8px 10px;font-size:.78rem;color:var(--ink-2);line-height:1.35}
+.gallery .yr{display:inline-block;font-size:.68rem;font-weight:700;color:var(--ochre);letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.lightbox{position:fixed;inset:0;background:rgba(10,15,14,.92);z-index:60;display:none;align-items:center;justify-content:center;padding:20px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:min(100%,1000px);max-height:80vh;object-fit:contain;border-radius:8px}
+.lightbox p{position:absolute;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:20px;right:20px;color:#fff;text-align:center;font-size:.9rem}
+.lightbox button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:16px;background:#fff;border:0;border-radius:999px;width:38px;height:38px;font-size:1.2rem;cursor:pointer}
+.videos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px} @media (max-width:860px){.videos{grid-template-columns:1fr}}
+.video{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.video .frame{aspect-ratio:16/9;background:linear-gradient(135deg,var(--teal-2),var(--teal));display:grid;place-items:center;color:#fff;font-weight:700}
+.video .frame svg{width:48px;height:48px} .video .body{padding:12px 14px;font-size:.88rem}
+
+/* news, docs */
+.news{display:grid;grid-template-columns:repeat(3,1fr);gap:16px} @media (max-width:860px){.news{grid-template-columns:1fr}}
+.post{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.post img{height:150px;width:100%;object-fit:cover} .post .body{padding:16px}
+.post time{font-size:.76rem;color:var(--ink-3)} .post h3{font-size:1.02rem;margin-block:6px}
+.docs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px} @media (max-width:700px){.docs{grid-template-columns:1fr}}
+.doc{display:flex;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-decoration:none;color:var(--ink)}
+.doc svg{width:26px;height:26px;flex:none;color:var(--ochre)} .doc b{display:block;font-size:.92rem} .doc span{font-size:.76rem;color:var(--ink-3)}
+
+/* donate */
+.donate{background:var(--teal);color:#fff;border-radius:16px;padding:32px;display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center}
+@media (max-width:860px){.donate{grid-template-columns:1fr}}
+.donate h2,.donate p{color:#fff}
+.donate .box{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:10px;padding:18px;font-size:.95rem}
+.donate .box b{display:block;font-size:1.02rem} .donate .btn.ochre{margin-top:14px}
+
+/* contact */
+form{display:grid;gap:12px} label{font-size:.85rem;font-weight:600;color:var(--ink-2)}
+input,textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);font:inherit}
+textarea{min-height:110px;resize:vertical}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px} @media (max-width:860px){.contact-grid{grid-template-columns:1fr}}
+.contact-list{display:grid;gap:14px} .contact-list div{display:flex;gap:12px;align-items:flex-start} .contact-list svg{flex:none;margin-top:3px;width:20px;height:20px}
+footer{border-top:1px solid var(--line);padding-block:28px;font-size:.84rem;color:var(--ink-3);background:var(--surface)}
+footer .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+</style>
+</head>
+<body>
+
+<!-- =====================================================================
+     KONFIGURASI YAYASAN — bagian ini yang diubah bila ada perubahan.
+     Cukup ganti teks di antara tanda kutip. Jangan hapus tanda koma/kurung.
+     ===================================================================== -->
+<script id="ypv-config" type="application/json">
+{
+  "nama": "Yayasan Vlinder Papua",
+  "singkatan": "YVP",
+  "alamat": "Perumnas Sorido, Jl. Sorido Raya No. 19, RT 002/RW 003, Kampung Sorido, Distrik Biak Kota, Kabupaten Biak Numfor, Papua",
+  "email": "GANTI@email.com",
+  "whatsapp": "62812XXXXXXX",
+  "telepon": "0812-XXXX-XXXX",
+  "instagram": "https://instagram.com/GANTI",
+  "facebook": "https://facebook.com/GANTI",
+  "youtube": "https://youtube.com/@GANTI",
+  "tiktok": "",
+  "bank": "Bank Papua",
+  "rekening": "GANTI-NOMOR-REKENING",
+  "atas_nama": "Yayasan Vlinder Papua",
+  "kitabisa": "",
+  "pembina": [
+    {"nama": "DR. dr. Arry Pongtiku, MHM", "jabatan": "Ketua Pembina (Pendiri)"},
+    {"nama": "dr. Daisy Chostance Urbinas", "jabatan": "Anggota Pembina"},
+    {"nama": "dr. Leonora Komboy, MPH", "jabatan": "Anggota Pembina"}
+  ],
+  "pengurus": [
+    {"nama": "Lukas Linggi, SKM", "jabatan": "Ketua"},
+    {"nama": "Antonioes Andrianto, S.Kep., Ns", "jabatan": "Sekretaris"},
+    {"nama": "Puteri Murni Awak, S.Si", "jabatan": "Bendahara"}
+  ],
+  "pengawas": [
+    {"nama": "dr. Linna", "jabatan": "Ketua Pengawas"},
+    {"nama": "dr. Irene Mariani Santoso, Sp.KK", "jabatan": "Anggota Pengawas"}
+  ]
+}
+</script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="0 0 100 100">
+    <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M50 52 C 38 30, 14 22, 10 34 C 6 46, 24 58, 44 58 Z" fill="var(--teal)" stroke="var(--teal)"/>
+      <path d="M50 52 C 62 30, 86 22, 90 34 C 94 46, 76 58, 56 58 Z" fill="var(--teal)" stroke="var(--teal)"/>
+      <path d="M48 58 C 34 60, 18 70, 22 80 C 26 90, 42 82, 48 66 Z" fill="var(--ochre)" stroke="var(--ochre)"/>
+      <path d="M52 58 C 66 60, 82 70, 78 80 C 74 90, 58 82, 52 66 Z" fill="var(--ochre)" stroke="var(--ochre)"/>
+      <path d="M50 44 V 72" stroke="var(--ink)" stroke-width="3"/>
+      <path d="M50 44 C 46 38, 40 34, 36 30 M50 44 C 54 38, 60 34, 64 30" stroke="var(--ink)"/>
+      <circle cx="28" cy="40" r="3.5" fill="#fff" stroke="none" opacity=".9"/><circle cx="72" cy="40" r="3.5" fill="#fff" stroke="none" opacity=".9"/>
+    </g>
+  </symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.3.8 3.1.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4z"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H7v4h3v8h4v-8h3l1-4h-4V8z"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><path fill="currentColor" d="M22 8.2a2.8 2.8 0 0 0-2-2C18.3 6 12 6 12 6s-6.3 0-8 .2a2.8 2.8 0 0 0-2 2A29 29 0 0 0 1.8 12 29 29 0 0 0 2 15.8a2.8 2.8 0 0 0 2 2c1.7.2 8 .2 8 .2s6.3 0 8-.2a2.8 2.8 0 0 0 2-2 29 29 0 0 0 .2-3.8 29 29 0 0 0-.2-3.8zM10 15V9l5.2 3L10 15z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M14 3v5h5M10 13h6M10 17h6" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 8l6 4-6 4z" fill="currentColor"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#beranda" aria-label="Yayasan Vlinder Papua, beranda">
+      <svg><use href="#logo"/></svg>
+      <div><b>Yayasan Vlinder Papua</b><span>YVP · Biak Numfor · Papua</span></div>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    <nav class="links" id="navLinks" aria-label="Navigasi utama">
+      <a href="#tentang">Tentang</a>
+      <a href="#program">Program</a>
+      <a href="#data">Data ATMK</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#berita">Berita</a>
+      <a href="#dokumen">Dokumen</a>
+      <a href="#kontak">Kontak</a>
+      <a href="#donasi" class="cta">Donasi</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="beranda">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Yayasan sosial &amp; kemanusiaan bidang kesehatan · Biak Numfor, Papua</span>
+      <h1>Bersama pemerintah <em>mengeliminasi kusta</em>, TBC, HIV, dan malaria di Tanah Papua</h1>
+      <p class="lead">Yayasan Vlinder Papua (YVP) adalah lembaga nirlaba berbadan hukum yang berkedudukan di Biak. Sejak 2018 kami bergerak di bidang sosial dan kemanusiaan dengan fokus penjangkauan dan pelayanan bagi penderita kusta dan penyakit menular lainnya, dari rumah ke rumah, bersama Dinas Kesehatan, Puskesmas, gereja, dan lembaga adat.</p>
+      <div class="btns">
+        <a class="btn primary" href="#data">Lihat data ATMK Biak Numfor</a>
+        <a class="btn ghost" href="#donasi">Dukung gerakan ini</a>
+      </div>
+      <div class="social" style="margin-top:22px" id="socialHero"></div>
+    </div>
+    <div class="stats" aria-label="Angka kunci Biak Numfor">
+      <div class="stat"><b class="num">558</b><span>kasus baru kusta ditemukan di Biak Numfor pada 2024, tertinggi dalam 12 tahun terakhir</span><small>Laporan Tahunan Program Kusta, Dinkes Biak Numfor</small></div>
+      <div class="stat"><b class="num">80×</b><span>angka penemuan kasus baru kusta Biak Numfor (366,8 per 100.000, 2024) dibanding angka nasional (4,58)</span><small>Dinkes Biak Numfor; Kemenkes RI 2024</small></div>
+      <div class="stat"><b class="num">1 dari 4</b><span>kasus baru kusta 2025 adalah anak, tanda penularan masih aktif di masyarakat</span><small>60 dari 250 kasus (24%), 2025</small></div>
+      <div class="stat"><b class="num">4.425</b><span>kasus malaria pada 2025 (API 31 per 1.000 penduduk), target eliminasi 2030</span><small>SISMAL, Dinkes Biak Numfor</small></div>
+    </div>
+  </div>
+</div>
+
+<section id="tentang">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Tentang kami</span>
+      <h2>Lahir dari masalah nyata di Biak Numfor</h2>
+      <p>Nama <em>Vlinder</em> berarti kupu-kupu. Seperti kupu-kupu yang bermetamorfosis, kami percaya orang yang pernah mengalami kusta dan penyakit menular lainnya dapat pulih, berdaya, dan hidup tanpa stigma. Yayasan didirikan dengan Akta Notaris Feronika Yupiyanti, S.H., M.Kn. Nomor 13 tanggal 31 Mei 2018 dan disahkan Kementerian Hukum dan HAM RI pada 8 Juni 2018.</p>
+    </div>
+    <div class="two">
+      <div class="card">
+        <h3>Maksud dan tujuan</h3>
+        <p class="muted">Sesuai Pasal 2 Anggaran Dasar, Yayasan bergerak di bidang <b>Sosial</b> dan <b>Kemanusiaan</b>.</p>
+        <h4 style="margin-top:16px">Kegiatan bidang sosial (Pasal 3)</h4>
+        <ul>
+          <li>Penjangkauan dan pelayanan kepada penderita kusta dan penyakit menular lainnya dengan pendekatan rumah ke rumah dan pendekatan keluarga melalui upaya promotif, preventif, kuratif, dan rehabilitatif.</li>
+          <li>Peningkatan sumber daya tenaga kesehatan melalui pelatihan, workshop, seminar, refreshing petugas, bimbingan teknis, dan on the job training.</li>
+          <li>Pelayanan kesehatan bekerja sama dengan lembaga pemerintah, lembaga adat, lembaga keagamaan, dan tokoh masyarakat.</li>
+          <li>Pemberian makanan tambahan (PMT) bagi pasien kusta dan penyakit menular lainnya, serta pengadaan alat kesehatan dan obat-obatan.</li>
+          <li>Pemberdayaan Orang Yang Pernah Mengalami Kusta (OYPMK) sebagai bentuk pengurangan stigma.</li>
+          <li>Bantuan pendidikan bagi anak tidak mampu, diutamakan keluarga OYPMK, serta kerja sama penelitian faktor determinan kesehatan.</li>
+        </ul>
+        <h4 style="margin-top:16px">Kegiatan bidang kemanusiaan</h4>
+        <ul>
+          <li>Bantuan bagi keluarga prasejahtera dan penyandang disabilitas karena kusta dan penyakit menular lainnya.</li>
+          <li>Bantuan korban bencana alam, rumah singgah bagi penderita dan keluarganya, serta kegiatan donor darah.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Legalitas</h3>
+        <dl class="legal">
+          <dt>Nama resmi</dt><dd>Yayasan Vlinder Papua (YVP)</dd>
+          <dt>Akta pendirian</dt><dd>Akta Notaris Feronika Yupiyanti, S.H., M.Kn. No. 13, 31 Mei 2018, Biak</dd>
+          <dt>Pengesahan badan hukum</dt><dd>Keputusan Menkumham RI No. AHU-0008089.AH.01.04.Tahun 2018, 8 Juni 2018</dd>
+          <dt>Daftar yayasan</dt><dd>No. AHU-0010715.AH.01.12.Tahun 2018</dd>
+          <dt>Kedudukan</dt><dd id="alamatTentang"></dd>
+          <dt>Kekayaan awal</dt><dd>Rp10.000.000 (dipisahkan dari kekayaan pendiri)</dd>
+          <dt>Pendaftaran Kesbangpol &amp; Tanda Daftar LKS</dt><dd>[dalam proses — isi nomor surat bila sudah terbit]</dd>
+        </dl>
+      </div>
+    </div>
+
+    <h3 style="margin:32px 0 14px">Organ Yayasan</h3>
+    <p class="muted small" style="margin-bottom:14px">Sesuai Lampiran Keputusan Menkumham No. AHU-0008089.AH.01.04.Tahun 2018. Susunan ini dibaca dari blok konfigurasi di bagian atas file website, sehingga mudah diperbarui bila ada perubahan pengurus.</p>
+    <div class="organ" id="organ"></div>
+  </div>
+</section>
+
+<section id="program">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Program</span>
+      <h2>Empat penyakit, satu pendekatan dari rumah ke rumah</h2>
+      <p>Kusta adalah fokus utama. Program TBC, HIV, dan malaria dikembangkan bertahap sesuai ketersediaan mitra dan pendanaan, selalu dalam koordinasi dengan Dinas Kesehatan Kabupaten Biak Numfor.</p>
+    </div>
+    <div class="programs">
+      <div class="prog lead-prog"><span class="tag">Fokus utama</span><h3>Kusta</h3><p>Penemuan kasus aktif di kampung, pemeriksaan kontak serumah dan kemoprofilaksis, pendampingan minum obat (MDT) hingga RFT, PMT bagi pasien, kelompok perawatan diri (KPD), dan pemberdayaan OYPMK.</p></div>
+      <div class="prog"><span class="tag">Pengembangan</span><h3>Tuberkulosis</h3><p>Investigasi kontak, pendampingan pasien hingga sembuh, dukungan terapi pencegahan TBC (TPT) bagi kontak serumah, dan edukasi TBC resistan obat.</p></div>
+      <div class="prog"><span class="tag">Pengembangan</span><h3>HIV</h3><p>Penjangkauan tes HIV bagi pasangan berisiko dan ibu hamil, pendamping sebaya agar orang dengan HIV mulai dan bertahan dalam pengobatan ARV, serta pengurangan stigma.</p></div>
+      <div class="prog"><span class="tag">Pengembangan</span><h3>Malaria</h3><p>Mendukung strategi TOKEN (Temukan, Obati, Kendalikan): kader penemuan kasus, edukasi kelambu, surveilans migrasi, dan intervensi berbasis sekolah dan rumah tangga.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="kebijakan">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Mengapa sekarang</span>
+      <h2>ATMK menjadi prioritas nasional di Tanah Papua</h2>
+    </div>
+    <div class="policy">
+      <div>
+        <p class="muted">Pada kunjungan kerja 27 sampai 29 April 2026 di Jayapura, Wakil Menteri Kesehatan Benjamin Paulus Octavianus menegaskan penanganan HIV/AIDS, TBC, malaria, dan kusta sebagai fokus lintas sektor bagi enam provinsi di Tanah Papua. Kementerian Kesehatan menyebut lebih dari 90 persen kasus malaria nasional dan sekitar 12 persen orang dengan HIV di Indonesia berada di Tanah Papua, dengan target Indonesia bebas TBC dan malaria pada 2030.</p>
+        <p class="muted" style="margin-top:12px">Di tingkat kabupaten, Pemerintah Biak Numfor telah menerbitkan Peraturan Bupati No. 4 Tahun 2023 tentang Percepatan Eliminasi Malaria, dan eliminasi malaria menjadi indikator kinerja RPJMD 2025–2029 dengan target API di bawah 1 per 1.000 penduduk pada 2030. Untuk kusta, Provinsi Papua termasuk provinsi yang belum mencapai eliminasi, dan Sasakawa Leprosy Initiative pada Januari 2025 mengumumkan peningkatan dukungan bagi Indonesia termasuk pemilihan kabupaten model bebas kusta.</p>
+        <p class="muted" style="margin-top:12px">YVP hadir sebagai mitra masyarakat sipil yang bekerja di titik paling sulit dijangkau program: rumah pasien, kontak serumah, dan kampung-kampung di pulau.</p>
+      </div>
+      <div>
+        <blockquote class="quote">“Kami mendorong kolaborasi lintas sektor agar penuntasan penyakit di Tanah Papua dapat berjalan lebih efektif.”<cite>Wakil Menteri Kesehatan RI, Jayapura, 28 April 2026 (ANTARA)</cite></blockquote>
+        <blockquote class="quote" style="margin-top:20px">Target Biak Numfor: 80% kampung mencapai eliminasi malaria pada 2026, seluruh kampung pada 2030.<cite>Peta Jalan Eliminasi Malaria Kab. Biak Numfor 2026–2030, Dinkes Biak Numfor</cite></blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="data">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Data ATMK Kabupaten Biak Numfor</span>
+      <h2>Angka yang bisa diperiksa, dijelaskan dengan bahasa sederhana</h2>
+      <p>Seluruh data berasal dari laporan resmi program Dinas Kesehatan Kabupaten Biak Numfor (SIHA, SITB, SISMAL, Laporan Tahunan Kusta) dan hanya ditampilkan dalam bentuk agregat tanpa identitas pasien. Arahkan kursor atau sentuh batang grafik untuk melihat angka.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Pilih penyakit">
+      <button class="tab" role="tab" aria-selected="true" aria-controls="p-kusta" id="t-kusta">Kusta</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-tbc" id="t-tbc">TBC</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-hiv" id="t-hiv">HIV/AIDS</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p-malaria" id="t-malaria">Malaria</button>
+    </div>
+
+    <!-- KUSTA -->
+    <div class="panel" id="p-kusta" role="tabpanel" aria-labelledby="t-kusta">
+      <div class="tiles">
+        <div class="tile warn"><b class="num">250</b><span>kasus baru kusta 2025 (558 pada 2024)</span></div>
+        <div class="tile warn"><b class="num">164</b><span>angka penemuan kasus baru per 100.000 penduduk, 2025 (nasional 4,58)</span></div>
+        <div class="tile"><b class="num">24%</b><span>proporsi anak di antara kasus baru 2025 (target nasional &lt;5%)</span></div>
+        <div class="tile"><b class="num">0</b><span>kasus baru dengan cacat tingkat 2 sejak 2022, tanda penemuan makin dini</span></div>
+      </div>
+      <div class="charts">
+        <div class="fig"><h4>Kasus baru kusta per tahun</h4><div class="sub">Kabupaten Biak Numfor, 2014–2025</div><div id="ch-kusta-kasus"></div><div class="src">Sumber: Laporan Tahunan Program Kusta 2014–2025, Dinkes Biak Numfor</div></div>
+        <div class="fig"><h4>Proporsi anak di antara kasus baru (%)</h4><div class="sub">Angka di atas 10% menandakan penularan masih berlangsung</div><div id="ch-kusta-anak"></div><div class="src">Sumber: Laporan Tahunan Program Kusta, Dinkes Biak Numfor; target nasional &lt;5%</div></div>
+        <div class="fig"><h4>Angka kesembuhan (RFT rate, %)</h4><div class="sub">Kohort pasien yang menyelesaikan pengobatan MDT, tipe MB dan PB</div><div id="ch-kusta-rft"></div><div class="legend"><span><i style="background:var(--c1)"></i>Tipe MB (kohort 2 tahun)</span><span><i style="background:var(--c2)"></i>Tipe PB (kohort 1 tahun)</span></div><div class="src">Sumber: Laporan Tahunan Program Kusta, Dinkes Biak Numfor. Target nasional ≥90%</div></div>
+        <div class="fig"><h4>Kasus baru yang ditemukan lewat pemeriksaan kontak</h4><div class="sub">Semakin banyak kontak diperiksa, semakin dini kasus ditemukan</div><div id="ch-kusta-kontak"></div><div class="src">Sumber: Laporan Tahunan Program Kusta, Dinkes Biak Numfor</div></div>
+      </div>
+      <div class="meaning">
+        <h4>Apa artinya bagi Biak Numfor</h4>
+        <p>Selama 12 tahun Biak Numfor menemukan 3.503 kasus baru kusta. Angka penemuan kasus baru tahun 2024 mencapai 366,8 per 100.000 penduduk, sekitar 80 kali angka nasional. Sekitar seperempat kasus baru setiap tahun adalah anak, yang berarti kuman masih menular di rumah dan lingkungan. Kabar baiknya, sejak 2022 tidak ada kasus baru yang ditemukan sudah cacat tingkat 2, tanda petugas menemukan pasien lebih dini.</p>
+        <ul>
+          <li>Tantangan terbesar ada pada pengobatan tuntas: hanya 53% pasien tipe MB dan 71% pasien tipe PB yang menyelesaikan pengobatan (2025), jauh dari target 90%.</li>
+          <li>Belum ada satu pun kelompok perawatan diri (KPD) yang berfungsi di kabupaten ini. Di sinilah YVP mengisi celah: pendamping minum obat, kunjungan rumah, PMT, dan pembentukan KPD.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TBC -->
+    <div class="panel" id="p-tbc" role="tabpanel" aria-labelledby="t-tbc" hidden>
+      <div class="tiles">
+        <div class="tile"><b class="num">795</b><span>kasus TBC ternotifikasi 2025 (745 sensitif obat, 50 resistan obat)</span></div>
+        <div class="tile warn"><b class="num">57%</b><span>cakupan penemuan kasus dari estimasi 1.401 kasus (target 90%)</span></div>
+        <div class="tile warn"><b class="num">43%</b><span>terduga TBC yang diperiksa dari target SPM 6.809 orang</span></div>
+        <div class="tile"><b class="num">65</b><span>kasus TBC anak 2025; 579 pasien TBC (73%) mengetahui status HIV</span></div>
+      </div>
+      <div class="charts">
+        <div class="fig"><h4>Kasus TBC sensitif obat ternotifikasi per bulan</h4><div class="sub">2025, seluruh fasyankes Kabupaten Biak Numfor</div><div id="ch-tb-bulan"></div><div class="src">Sumber: Rekapan Data TBC 2025, Dinkes Biak Numfor (SITB)</div></div>
+        <div class="fig"><h4>Alur penanganan TBC 2025</h4><div class="sub">Dari terduga yang diperiksa hingga pasien mulai berobat</div><div id="ch-tb-cascade"></div><div class="src">Sumber: Rekapan Data TBC 2025, Dinkes Biak Numfor</div></div>
+      </div>
+      <div class="meaning">
+        <h4>Apa artinya bagi Biak Numfor</h4>
+        <p>Dari perkiraan 1.401 orang sakit TBC di Biak Numfor pada 2025, baru 795 yang ditemukan dan dicatat. Artinya sekitar 600 orang diperkirakan masih sakit TBC tanpa diobati dan berpotensi menularkan ke keluarganya. Kasus resistan obat sudah melampaui perkiraan (50 ditemukan dari estimasi 41), menandakan masalah kepatuhan berobat di masa lalu.</p>
+        <ul>
+          <li>Investigasi kontak baru menjangkau separuh dari kasus indeks, dan terapi pencegahan TBC bagi kontak serumah baru 7% dari target. Kader komunitas dapat mengisi celah ini.</li>
+          <li>Tiga bulan pertama 2026 sudah 216 kasus sensitif obat dan 16 resistan obat ternotifikasi.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- HIV -->
+    <div class="panel" id="p-hiv" role="tabpanel" aria-labelledby="t-hiv" hidden>
+      <div class="tiles">
+        <div class="tile"><b class="num">11.587</b><span>orang dites HIV pada 2025, 273 positif (2,4%)</span></div>
+        <div class="tile"><b class="num">3.442</b><span>orang dengan HIV tercatat kumulatif sampai Desember 2025</span></div>
+        <div class="tile warn"><b class="num">31%</b><span>dari yang pernah didiagnosis saat ini sedang dalam pengobatan ARV (1.075 orang)</span></div>
+        <div class="tile"><b class="num">53</b><span>ibu hamil positif HIV dari 4.104 yang dites (1,3%), 29 sudah diobati</span></div>
+      </div>
+      <div class="charts">
+        <div class="fig"><h4>Status pengobatan orang dengan HIV yang pernah tercatat</h4><div class="sub">Register ODHIV kumulatif Biak Numfor s.d. Desember 2025 (n = 3.442)</div><div id="ch-hiv-cascade"></div><div class="src">Sumber: Register ODHIV Dinkes Biak Numfor / SIHA 2.1</div></div>
+        <div class="fig"><h4>Kasus baru 2025 menurut kelompok umur</h4><div class="sub">Surveilans HIV-AIDS 2025 (n = 272)</div><div id="ch-hiv-umur"></div><div class="src">Sumber: Data Surveilans HIV-AIDS dan PIMS 2025, Dinkes Biak Numfor</div></div>
+      </div>
+      <div class="meaning">
+        <h4>Apa artinya bagi Biak Numfor</h4>
+        <p>Dua dari tiga kasus baru HIV tahun 2025 berusia 15 sampai 34 tahun, dan 59% adalah perempuan. Faktor risiko terbanyak adalah pasangan dari orang berisiko tinggi (51%), bukan populasi kunci. Itu sebabnya tes HIV pada pasangan dan ibu hamil menjadi pintu masuk utama.</p>
+        <ul>
+          <li>Masalah terbesar bukan di tes, tetapi di pengobatan: dari 3.442 orang yang pernah didiagnosis, hanya 1.075 yang sedang minum ARV. 719 orang putus pengobatan dan 814 sudah meninggal.</li>
+          <li>Dari 272 kasus baru 2025, 107 orang belum pernah datang ke layanan pengobatan. Pendamping sebaya dari komunitas dapat mengembalikan mereka ke layanan.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- MALARIA -->
+    <div class="panel" id="p-malaria" role="tabpanel" aria-labelledby="t-malaria" hidden>
+      <div class="tiles">
+        <div class="tile warn"><b class="num">4.425</b><span>kasus malaria 2025, API 31 per 1.000 penduduk (target eliminasi &lt;1)</span></div>
+        <div class="tile"><b class="num">2.855</b><span>kasus Januari–Agustus 2026 dari 74.240 pemeriksaan (positivity rate 3,85%)</span></div>
+        <div class="tile"><b class="num">61%</b><span>kasus 2026 adalah kasus impor (pendatang/perjalanan), 39% penularan lokal</span></div>
+        <div class="tile warn"><b class="num">201</b><span>kasus malaria pada ibu hamil (43) dan balita (158), Jan–Agu 2026</span></div>
+      </div>
+      <div class="charts">
+        <div class="fig"><h4>Kasus malaria per tahun</h4><div class="sub">Kabupaten Biak Numfor, 2021–2026 (2026 s.d. Agustus)</div><div id="ch-mal-kasus"></div><div class="src">Sumber: SISMAL, Dinkes Biak Numfor, evaluasi TOKEN September 2026</div></div>
+        <div class="fig"><h4>Annual Parasite Incidence (API) per 1.000 penduduk</h4><div class="sub">Garis putus-putus: target RPJMD 2025–2029 menuju eliminasi 2030</div><div id="ch-mal-api"></div><div class="legend"><span><i style="background:var(--c1)"></i>API aktual</span><span><i style="background:var(--c2)"></i>Target RPJMD</span></div><div class="src">Sumber: SISMAL; RPJMD Kab. Biak Numfor 2025–2029</div></div>
+        <div class="fig"><h4>Kasus lokal vs impor (hasil penyelidikan epidemiologi)</h4><div class="sub">Sejak 2023 kasus impor melampaui kasus lokal</div><div id="ch-mal-lokal"></div><div class="legend"><span><i style="background:var(--c1)"></i>Kasus lokal (indigenous)</span><span><i style="background:var(--c2)"></i>Kasus impor</span></div><div class="src">Sumber: SISMAL, Dinkes Biak Numfor</div></div>
+        <div class="fig"><h4>Puskesmas dengan API tertinggi, Jan–Agu 2026</h4><div class="sub">Per 1.000 penduduk wilayah kerja</div><div id="ch-mal-pkm"></div><div class="src">Sumber: SISMAL, Dinkes Biak Numfor</div></div>
+      </div>
+      <div class="meaning">
+        <h4>Apa artinya bagi Biak Numfor</h4>
+        <p>Malaria di Biak Numfor belum turun. API 2025 sebesar 31 per 1.000 penduduk adalah 30 kali batas eliminasi. Sepertiga kasus 2026 terjadi pada pelajar dan seperempat pada anak usia 1 sampai 14 tahun, sehingga sekolah dan rumah tangga adalah medan utama pencegahan.</p>
+        <ul>
+          <li>Lima puskesmas dengan API di atas 50 per 1.000 (Yemburwo, Ampombukor, Poiru, Saribi, Mandori) berada di wilayah pulau dan pesisir yang sulit dijangkau, tempat kader komunitas sangat dibutuhkan.</li>
+          <li>85% kasus masih ditemukan secara pasif saat pasien datang sakit. Penemuan aktif lewat kunjungan rumah dan surveilans migrasi baru 15%, ruang kontribusi terbesar bagi relawan YVP.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galeri">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Galeri &amp; dokumentasi</span>
+      <h2>Kerja di lapangan</h2>
+      <p>Dokumentasi kegiatan penanggulangan kusta yang diikuti pengurus YVP bersama Dinas Kesehatan Kabupaten Biak Numfor dan Puskesmas. Wajah pasien dan keluarga disamarkan dan tahun tidak dicantumkan untuk menjaga privasi. Klik foto untuk memperbesar.</p>
+    </div>
+    <div class="gallery" id="gallery"></div>
+    <h3 style="margin-top:36px">Video</h3>
+    <p class="muted small" style="margin:6px 0 0">Tempel tautan YouTube kegiatan YVP di blok konfigurasi video (lihat komentar di dalam file). Saat dihosting di GitHub Pages/Netlify, kartu ini bisa diganti dengan pemutar YouTube langsung.</p>
+    <div class="videos" id="videos"></div>
+  </div>
+</section>
+
+<section id="berita">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Berita &amp; kegiatan</span><h2>Cerita terbaru</h2></div>
+    <div class="news">
+      <article class="post"><img src="assets/foto/kegiatan-01.jpg" alt="On the job training penanggung jawab program kusta puskesmas"><div class="body"><time>[tanggal]</time><h3>On the Job Training penanggung jawab program kusta puskesmas</h3><p class="small muted">Petugas puskesmas dilatih menemukan tanda dini kusta, menetapkan tipe, dan mencatat kohort pengobatan. [Ganti dengan ringkasan kegiatan terbaru.]</p></div></article>
+      <article class="post"><img src="assets/foto/kegiatan-05.jpg" alt="Pemeriksaan kontak serumah di kampung"><div class="body"><time>[tanggal]</time><h3>Investigasi kontak dan kemoprofilaksis di kampung</h3><p class="small muted">Kontak serumah pasien kusta diperiksa dan diberi obat pencegahan agar tidak ikut sakit. [Ganti dengan ringkasan kegiatan terbaru.]</p></div></article>
+      <article class="post"><img src="assets/foto/kegiatan-08.jpg" alt="Pemberian makanan tambahan kepada pasien kusta"><div class="body"><time>[tanggal]</time><h3>Pemberian makanan tambahan (PMT) bagi pasien kusta</h3><p class="small muted">Gizi yang cukup membantu pasien menyelesaikan pengobatan 6 sampai 12 bulan. [Ganti dengan ringkasan kegiatan terbaru.]</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="dokumen">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Transparansi &amp; dokumen</span><h2>Setiap rupiah bisa ditelusuri</h2><p>Sebagai yayasan berbadan hukum, YVP tunduk pada UU No. 16 Tahun 2001 jo. UU No. 28 Tahun 2004 tentang Yayasan. Unggah dokumen berikut sebagai PDF dan ganti tautannya.</p></div>
+    <div class="docs">
+      <a class="doc" href="#"><svg><use href="#i-doc"/></svg><div><b>SK Menkumham Pengesahan Badan Hukum</b><span>AHU-0008089.AH.01.04.Tahun 2018 · PDF</span></div></a>
+      <a class="doc" href="#"><svg><use href="#i-doc"/></svg><div><b>Akta Pendirian &amp; Anggaran Dasar</b><span>Akta No. 13, 31 Mei 2018 · PDF</span></div></a>
+      <a class="doc" href="#"><svg><use href="#i-doc"/></svg><div><b>Profil Lembaga (ID/EN)</b><span>Untuk mitra dan donor · PDF</span></div></a>
+      <a class="doc" href="#"><svg><use href="#i-doc"/></svg><div><b>Laporan Tahunan &amp; Keuangan</b><span>[tahun] · PDF</span></div></a>
+      <a class="doc" href="#"><svg><use href="#i-doc"/></svg><div><b>Rencana Strategis YVP</b><span>[periode] · PDF</span></div></a>
+      <a class="doc" href="#"><svg><use href="#i-doc"/></svg><div><b>Kebijakan Perlindungan Penerima Manfaat</b><span>Privasi pasien &amp; anti-korupsi · PDF</span></div></a>
+    </div>
+  </div>
+</section>
+
+<section id="donasi">
+  <div class="wrap">
+    <div class="donate">
+      <div>
+        <span class="eyebrow" style="color:#ffd9b8">Donasi &amp; kemitraan</span>
+        <h2 style="margin-top:8px">Dukung eliminasi kusta dan penyakit menular di Biak Numfor</h2>
+        <p style="margin-top:12px;opacity:.95">Donasi Anda membiayai kader pencari kasus, pendamping minum obat, PMT bagi pasien, dan kelompok perawatan diri. Setiap donasi dicatat dan dilaporkan dalam laporan keuangan tahunan.</p>
+        <p style="margin-top:12px;opacity:.9" class="small"><b>Contoh manfaat:</b> Rp150.000 = transport satu kader untuk satu bulan kunjungan rumah · Rp500.000 = paket PMT untuk 5 pasien kusta selama sebulan · Rp2.000.000 = pelatihan satu kelompok perawatan diri. [Sesuaikan dengan biaya riil.]</p>
+      </div>
+      <div class="box">
+        <b>Transfer bank</b>
+        <span id="bankInfo"></span>
+        <p class="small" style="margin-top:10px;opacity:.9">Konfirmasi via WhatsApp agar kami dapat mengirim kuitansi.</p>
+        <b style="margin-top:12px">Galang dana daring</b>
+        <span class="small" id="kitabisaInfo">[Tautan Kitabisa/BenihBaik setelah akun organisasi terverifikasi]</span>
+        <a class="btn ochre" href="#kontak">Ajukan kemitraan / CSR</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="english">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">For international partners</span>
+      <h2>About Vlinder Papua Foundation</h2>
+      <p>Yayasan Vlinder Papua (YVP, “vlinder” means butterfly) is a registered non-profit foundation, legally established by Notarial Deed No. 13 of 31 May 2018 and approved by the Indonesian Ministry of Law and Human Rights (Decree AHU-0008089.AH.01.04.Tahun 2018). We are based in Biak, Biak Numfor Regency, Papua Province, one of Indonesia's highest-burden districts for leprosy: 558 new cases were detected in 2024 (new case detection rate 367 per 100,000, about 80 times the national rate) and roughly a quarter of new cases each year are children. Biak Numfor also carries a heavy burden of malaria (API 31 per 1,000 in 2025), tuberculosis (795 notified cases in 2025, about 57% of estimated incidence) and HIV (3,442 people ever diagnosed, only 31% currently on treatment).</p>
+    </div>
+    <div class="two">
+      <div class="card"><h3>What we do</h3><ul><li>House-to-house case finding, contact examination and chemoprophylaxis for leprosy with village health workers</li><li>Treatment adherence support, supplementary food and self-care groups for people affected by leprosy</li><li>Training and on-the-job coaching for primary health care staff</li><li>Community support for TB, HIV and malaria programmes in coordination with the District Health Office</li></ul></div>
+      <div class="card"><h3>Partner with us</h3><p class="muted">We welcome programme grants, technical partnerships and volunteers. Contact <b id="emailEn"></b> or WhatsApp <b id="waEn"></b>. Legal documents and reports are available on this page.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="kontak">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Kontak</span><h2>Hubungi kami</h2></div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-list" id="contactList"></div>
+        <div class="social" style="margin-top:18px" id="socialContact"></div>
+      </div>
+      <form id="contactForm">
+        <div><label for="nama">Nama</label><input id="nama" name="nama" type="text" required></div>
+        <div><label for="email">Email / nomor WhatsApp</label><input id="email" name="email" type="text" required></div>
+        <div><label for="pesan">Pesan</label><textarea id="pesan" name="pesan" required></textarea></div>
+        <button class="btn primary" type="submit">Kirim lewat WhatsApp</button>
+        <p class="small muted">Tombol ini membuka WhatsApp dengan pesan yang sudah terisi. Untuk formulir yang tersimpan otomatis, ganti dengan Formspree atau Google Form.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap row">
+    <div>© <span id="thn"></span> Yayasan Vlinder Papua · SK Menkumham No. AHU-0008089.AH.01.04.Tahun 2018</div>
+    <div class="social" id="socialFooter"></div>
+  </div>
+</footer>
+
+<a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto diperbesar"><button id="lbClose" aria-label="Tutup">×</button><img id="lbImg" alt=""><p id="lbCap"></p></div>
+<div class="tip" id="tip"></div>
+
+<script>
+/* ---------- KONFIGURASI: galeri & video (ubah di sini) ---------- */
+var GALERI=[
+ {f:"kegiatan-01.jpg",c:"On the Job Training penanggung jawab program kusta puskesmas",y:"Pelatihan"},
+ {f:"kegiatan-02.jpg",c:"Pembahasan kohort dan pencatatan pasien bersama petugas puskesmas",y:"Pelatihan"},
+ {f:"kegiatan-03.jpg",c:"Pemeriksaan bercak kulit pada kontak serumah di kampung",y:"Investigasi kontak"},
+ {f:"kegiatan-04.jpg",c:"Pemeriksaan kontak di rumah warga",y:"Investigasi kontak"},
+ {f:"kegiatan-05.jpg",c:"Pendataan dan pemberian kemoprofilaksis bagi kontak serumah",y:"Kemoprofilaksis"},
+ {f:"kegiatan-06.jpg",c:"Kontak serumah meminum obat pencegahan di depan petugas",y:"Kemoprofilaksis"},
+ {f:"kegiatan-07.jpg",c:"Penyerahan paket makanan tambahan (PMT) ke rumah pasien",y:"PMT"},
+ {f:"kegiatan-08.jpg",c:"Pemberian PMT bagi pasien kusta yang sedang berobat",y:"PMT"},
+ {f:"kegiatan-09.jpg",c:"Kunjungan rumah dan pemberian kemoprofilaksis",y:"Kemoprofilaksis"},
+ {f:"kegiatan-10.jpg",c:"Pendampingan rujukan pasien kusta ke rumah sakit rujukan di Mojokerto",y:"Rujukan"},
+ {f:"kegiatan-11.jpg",c:"Pasien tiba di rumah sakit rujukan kusta",y:"Rujukan"},
+ {f:"kegiatan-12.jpg",c:"Perawatan pasien di rumah sakit rujukan",y:"Rujukan"},
+ {f:"kegiatan-14.jpg",c:"Penanganan pasien oleh tim medis rumah sakit rujukan",y:"Rujukan"},
+ {f:"kegiatan-15.jpg",c:"Perawatan luka dan rehabilitasi pasien kusta",y:"Rehabilitasi"},
+ {f:"kegiatan-16.jpg",c:"Supervisi program kusta dan HIV di Puskesmas Poiru dan Saribi",y:"Supervisi"},
+ {f:"kegiatan-17.jpg",c:"Pemeriksaan logistik obat di puskesmas pulau",y:"Supervisi"}
+];
+var VIDEO=[
+ {t:"Profil Yayasan Vlinder Papua",u:"",d:"[Tempel tautan YouTube]"},
+ {t:"Investigasi kontak kusta di kampung",u:"",d:"[Tempel tautan YouTube]"},
+ {t:"Kisah OYPMK: pulih dan berdaya",u:"",d:"[Tempel tautan YouTube]"}
+];
+/* ---------- DATA (dari laporan Dinkes Biak Numfor) ---------- */
+var D={
+ kustaTahun:["2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024","2025"],
+ kustaKasus:[185,208,202,155,294,338,256,298,377,382,558,250],
+ kustaAnak:[29.7,29.8,27.2,24.5,29.9,28.1,25.0,23.8,30.5,27.0,30.5,24.0],
+ kustaRftTahun:["2016","2017","2018","2019","2020","2021","2022","2023","2024","2025"],
+ kustaRftMB:[73.9,65.2,48.6,74.4,74.7,46.6,46.9,51.9,58.4,52.6],
+ kustaRftPB:[86.8,71.6,78.9,84.1,75.0,76.6,61.8,67.2,67.9,71.3],
+ kustaKontak:[8,13,4,4,14,10,30,49,81,31,26,13],
+ tbBulan:["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Agu","Sep","Okt","Nov","Des"],
+ tbSO:[65,64,59,44,56,58,68,83,69,76,53,50],
+ tbCascade:[["Target terduga (SPM)",6809],["Terduga diperiksa",2957],["Estimasi kasus TBC",1401],["Kasus ternotifikasi",795],["Mulai pengobatan (SO)",636]],
+ hivCascade:[["Sedang pengobatan ARV",1075],["Masuk perawatan, belum ARV",532],["Putus pengobatan",719],["Meninggal",814]],
+ hivUmur:[["0-4",6],["5-14",0],["15-24",93],["25-34",90],["35-44",53],["45-54",20],["55+",9]],
+ malTahun:["2021","2022","2023","2024","2025","2026*"],
+ malKasus:[1560,3097,3259,2736,4425,2855],
+ malAPI:[9.94,20.55,21.29,19.39,30.99,19.84],
+ malTargetTahun:["2024","2025","2026","2027","2028","2029","2030"],
+ malTarget:[19.39,20,16,12,8,4,0],
+ malLokal:[880,1637,457,1200,1175,862],
+ malImpor:[325,624,846,1199,1316,1375],
+ malPkm:[["Yemburwo",79.61],["Ampombukor",72.95],["Poiru",66.8],["Saribi",64.31],["Mandori",54.04],["Marauw",36.65],["Kameri",24.52],["Yendidori",21.71]]
+};
+/* ---------- util ---------- */
+var CFG=JSON.parse(document.getElementById('ypv-config').textContent);
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function fmt(n){return Number(n).toLocaleString('id-ID')}
+var tip=document.getElementById('tip');
+function showTip(e,t){tip.textContent=t;tip.style.display='block';moveTip(e)}
+function moveTip(e){var x=e.clientX,y=e.clientY;tip.style.left=Math.min(x+14,window.innerWidth-tip.offsetWidth-8)+'px';tip.style.top=(y-34)+'px'}
+function hideTip(){tip.style.display='none'}
+function bindTips(root){root.querySelectorAll('[data-tip]').forEach(function(el){el.addEventListener('mousemove',function(e){showTip(e,el.getAttribute('data-tip'))});el.addEventListener('mouseleave',hideTip);el.addEventListener('touchstart',function(e){showTip(e.touches[0],el.getAttribute('data-tip'))},{passive:true})})}
+var NS='http://www.w3.org/2000/svg';
+function el(n,a,txt){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;return e}
+function niceMax(m){var p=Math.pow(10,Math.floor(Math.log10(m)));var f=m/p;var n=f<=1?1:f<=2?2:f<=2.5?2.5:f<=5?5:10;return n*p}
+/* bar chart: labels[], series [{v:[],col,name}], opts{pct,unit,yMax,ref} */
+function bars(id,labels,series,o){o=o||{};var W=520,H=240,pl=44,pr=8,pt=12,pb=30;var box=document.getElementById(id);var s=el('svg',{viewBox:'0 0 '+W+' '+H,role:'img','aria-label':o.label||''});
+ var max=o.yMax||niceMax(Math.max.apply(null,series.map(function(q){return Math.max.apply(null,q.v)}))*1.05);
+ var iw=W-pl-pr,ih=H-pt-pb,n=labels.length,gw=iw/n,ns=series.length,bw=Math.min(28,(gw-8)/ns);
+ for(var i=0;i<=4;i++){var y=pt+ih-ih*i/4;s.appendChild(el('line',{x1:pl,x2:W-pr,y1:y,y2:y,stroke:'var(--grid)','stroke-width':1}));s.appendChild(el('text',{x:pl-6,y:y+4,'text-anchor':'end',fill:'var(--ink-3)','font-size':10,'font-family':'inherit'},(max*i/4).toLocaleString('id-ID')+(o.pct?'%':'')))}
+ if(o.ref!=null){var ry=pt+ih-ih*o.ref/max;s.appendChild(el('line',{x1:pl,x2:W-pr,y1:ry,y2:ry,stroke:'var(--c2)','stroke-width':1.5,'stroke-dasharray':'4 4'}));s.appendChild(el('text',{x:W-pr,y:ry-4,'text-anchor':'end',fill:'var(--c2)','font-size':10,'font-family':'inherit','font-weight':700},o.refLabel||''))}
+ labels.forEach(function(lb,i){var x0=pl+gw*i+(gw-bw*ns-(ns-1)*2)/2;series.forEach(function(q,j){var v=q.v[i];if(v==null)return;var h=ih*v/max,x=x0+j*(bw+2),y=pt+ih-h;var r=el('rect',{x:x,y:y,width:bw,height:Math.max(h,0),rx:3,fill:q.col,'data-tip':lb+(ns>1?' · '+q.name:'')+': '+fmt(v)+(o.pct?'%':(o.unit?' '+o.unit:''))});s.appendChild(r);if(o.labelBars){s.appendChild(el('text',{x:x+bw/2,y:y-4,'text-anchor':'middle',fill:'var(--ink-2)','font-size':9.5,'font-family':'inherit'},fmt(v)))}});
+  s.appendChild(el('text',{x:pl+gw*i+gw/2,y:H-10,'text-anchor':'middle',fill:'var(--ink-3)','font-size':10,'font-family':'inherit'},lb))});
+ box.appendChild(s);bindTips(box)}
+/* horizontal bars for cascades */
+function hbars(id,rows,o){o=o||{};var W=520,rh=34,pl=170,pr=56,H=rows.length*rh+8;var box=document.getElementById(id);var s=el('svg',{viewBox:'0 0 '+W+' '+H,role:'img'});var max=Math.max.apply(null,rows.map(function(r){return r[1]}));var iw=W-pl-pr;
+ rows.forEach(function(r,i){var y=4+i*rh,w=iw*r[1]/max;var pct=o.pctOf?Math.round(r[1]/o.pctOf*100):null;s.appendChild(el('text',{x:pl-8,y:y+21,'text-anchor':'end',fill:'var(--ink-2)','font-size':11,'font-family':'inherit'},r[0]));s.appendChild(el('rect',{x:pl,y:y+6,width:Math.max(w,2),height:22,rx:4,fill:o.cols?o.cols[i]:'var(--c1)','data-tip':r[0]+': '+fmt(r[1])+(pct!=null?' ('+pct+'%)':'')}));s.appendChild(el('text',{x:pl+w+6,y:y+21,fill:'var(--ink)','font-size':11,'font-weight':700,'font-family':'inherit'},fmt(r[1])+(pct!=null?' ('+pct+'%)':'')))});
+ box.appendChild(s);bindTips(box)}
+/* line chart: x labels, series[{v,col,name,dash}] */
+function lines(id,labels,series,o){o=o||{};var W=520,H=240,pl=40,pr=12,pt=14,pb=30;var box=document.getElementById(id);var s=el('svg',{viewBox:'0 0 '+W+' '+H,role:'img'});
+ var max=o.yMax||niceMax(Math.max.apply(null,series.map(function(q){return Math.max.apply(null,q.v.filter(function(x){return x!=null}))}))*1.1);var iw=W-pl-pr,ih=H-pt-pb,n=labels.length;
+ for(var i=0;i<=4;i++){var y=pt+ih-ih*i/4;s.appendChild(el('line',{x1:pl,x2:W-pr,y1:y,y2:y,stroke:'var(--grid)'}));s.appendChild(el('text',{x:pl-6,y:y+4,'text-anchor':'end',fill:'var(--ink-3)','font-size':10,'font-family':'inherit'},(max*i/4).toLocaleString('id-ID')))}
+ labels.forEach(function(lb,i){s.appendChild(el('text',{x:pl+iw*i/(n-1),y:H-10,'text-anchor':'middle',fill:'var(--ink-3)','font-size':10,'font-family':'inherit'},lb))});
+ series.forEach(function(q){var pts=[];q.v.forEach(function(v,i){if(v==null)return;pts.push([pl+iw*i/(n-1),pt+ih-ih*v/max,v,labels[i]])});s.appendChild(el('path',{d:pts.map(function(p,i){return (i?'L':'M')+p[0]+' '+p[1]}).join(' '),fill:'none',stroke:q.col,'stroke-width':2.2,'stroke-dasharray':q.dash?'6 5':'none','stroke-linejoin':'round'}));pts.forEach(function(p){s.appendChild(el('circle',{cx:p[0],cy:p[1],r:4.5,fill:q.col,stroke:'var(--surface)','stroke-width':2,'data-tip':p[3]+' · '+q.name+': '+fmt(p[2])+(o.unit?' '+o.unit:'')}))})});
+ if(o.ref!=null){var ry=pt+ih-ih*o.ref/max;s.appendChild(el('line',{x1:pl,x2:W-pr,y1:ry,y2:ry,stroke:'var(--ink-3)','stroke-width':1,'stroke-dasharray':'2 3'}));s.appendChild(el('text',{x:pl+4,y:ry-4,fill:'var(--ink-3)','font-size':10,'font-family':'inherit'},o.refLabel))}
+ box.appendChild(s);bindTips(box)}
+/* ---------- render charts ---------- */
+bars('ch-kusta-kasus',D.kustaTahun,[{v:D.kustaKasus,col:'var(--c1)'}],{labelBars:true,unit:'kasus'});
+bars('ch-kusta-anak',D.kustaTahun,[{v:D.kustaAnak,col:'var(--c1)'}],{pct:true,yMax:40,ref:5,refLabel:'Target <5%'});
+bars('ch-kusta-rft',D.kustaRftTahun,[{v:D.kustaRftMB,col:'var(--c1)',name:'MB'},{v:D.kustaRftPB,col:'var(--c2)',name:'PB'}],{pct:true,yMax:100,ref:90,refLabel:'Target ≥90%'});
+bars('ch-kusta-kontak',D.kustaTahun,[{v:D.kustaKontak,col:'var(--c1)'}],{labelBars:true,unit:'kasus'});
+bars('ch-tb-bulan',D.tbBulan,[{v:D.tbSO,col:'var(--c1)'}],{labelBars:true,unit:'kasus'});
+hbars('ch-tb-cascade',D.tbCascade);
+hbars('ch-hiv-cascade',D.hivCascade,{pctOf:3442,cols:['var(--c1)','var(--teal-2)','var(--c2)','var(--ink-3)']});
+bars('ch-hiv-umur',D.hivUmur.map(function(r){return r[0]}),[{v:D.hivUmur.map(function(r){return r[1]}),col:'var(--c1)'}],{labelBars:true,unit:'orang'});
+bars('ch-mal-kasus',D.malTahun,[{v:D.malKasus,col:'var(--c1)'}],{labelBars:true,unit:'kasus'});
+(function(){var yrs=["2021","2022","2023","2024","2025","2026","2027","2028","2029","2030"];var api=[9.94,20.55,21.29,19.39,30.99,19.84,null,null,null,null];var tg=[null,null,null,19.39,20,16,12,8,4,0];lines('ch-mal-api',yrs,[{v:api,col:'var(--c1)',name:'API aktual'},{v:tg,col:'var(--c2)',name:'Target RPJMD',dash:true}],{ref:1,refLabel:'Batas eliminasi API < 1',yMax:35})})();
+bars('ch-mal-lokal',D.malTahun,[{v:D.malLokal,col:'var(--c1)',name:'Lokal'},{v:D.malImpor,col:'var(--c2)',name:'Impor'}],{unit:'kasus'});
+hbars('ch-mal-pkm',D.malPkm);
+/* ---------- tabs ---------- */
+var tabs=document.querySelectorAll('.tab');tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(x){x.setAttribute('aria-selected','false');document.getElementById(x.getAttribute('aria-controls')).hidden=true});t.setAttribute('aria-selected','true');document.getElementById(t.getAttribute('aria-controls')).hidden=false})});
+/* ---------- config-driven parts ---------- */
+document.getElementById('alamatTentang').textContent=CFG.alamat;
+function organCard(title,list){var h='<div class="card"><h3>'+title+'</h3>';list.forEach(function(p){var ini=p.nama.replace(/^(DR\.|dr\.|Dr\.|Prof\.)\s*/g,'').replace(/^(DR\.|dr\.|Dr\.)\s*/g,'').split(/[\s,]+/).filter(Boolean).slice(0,2).map(function(w){return w[0]}).join('').toUpperCase();h+='<div class="person"><div class="avatar">'+esc(ini)+'</div><div><b>'+esc(p.nama)+'</b><span>'+esc(p.jabatan)+'</span></div></div>'});return h+'</div>'}
+document.getElementById('organ').innerHTML=organCard('Pembina',CFG.pembina)+organCard('Pengurus',CFG.pengurus)+organCard('Pengawas',CFG.pengawas);
+var waNum=String(CFG.whatsapp).replace(/\D/g,'');var waLink='https://wa.me/'+waNum+'?text='+encodeURIComponent('Halo Yayasan Vlinder Papua, saya ingin bertanya tentang ');
+document.getElementById('waFloat').href=waLink;
+function socialHtml(){var a=[];a.push('<a href="'+waLink+'" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp</a>');if(CFG.instagram)a.push('<a href="'+esc(CFG.instagram)+'" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>Instagram</a>');if(CFG.facebook)a.push('<a href="'+esc(CFG.facebook)+'" target="_blank" rel="noopener"><svg><use href="#i-fb"/></svg>Facebook</a>');if(CFG.youtube)a.push('<a href="'+esc(CFG.youtube)+'" target="_blank" rel="noopener"><svg><use href="#i-yt"/></svg>YouTube</a>');a.push('<a href="mailto:'+esc(CFG.email)+'"><svg><use href="#i-mail"/></svg>Email</a>');return a.join('')}
+['socialHero','socialContact','socialFooter'].forEach(function(id){document.getElementById(id).innerHTML=socialHtml()});
+document.getElementById('bankInfo').innerHTML=esc(CFG.bank)+' · No. rek. <b>'+esc(CFG.rekening)+'</b> a.n. '+esc(CFG.atas_nama);
+if(CFG.kitabisa)document.getElementById('kitabisaInfo').innerHTML='<a href="'+esc(CFG.kitabisa)+'" style="color:#fff">'+esc(CFG.kitabisa)+'</a>';
+document.getElementById('emailEn').textContent=CFG.email;document.getElementById('waEn').textContent='+'+waNum;
+document.getElementById('contactList').innerHTML='<div><svg><use href="#i-pin"/></svg><div><b>Sekretariat</b><br><span class="muted">'+esc(CFG.alamat)+'</span></div></div><div><svg><use href="#i-mail"/></svg><div><b>Email</b><br><span class="muted">'+esc(CFG.email)+'</span></div></div><div><svg><use href="#i-wa"/></svg><div><b>Telepon / WhatsApp</b><br><span class="muted">'+esc(CFG.telepon)+'</span></div></div>';
+document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();var n=document.getElementById('nama').value,k=document.getElementById('email').value,p=document.getElementById('pesan').value;window.open('https://wa.me/'+waNum+'?text='+encodeURIComponent('Halo YVP, saya '+n+' ('+k+').\n'+p),'_blank')});
+/* ---------- gallery ---------- */
+var g=document.getElementById('gallery');g.innerHTML=GALERI.map(function(x,i){return '<figure data-i="'+i+'"><img loading="lazy" src="assets/foto/'+x.f+'" alt="'+esc(x.c)+'"><figcaption><span class="yr">'+esc(x.y)+'</span><br>'+esc(x.c)+'</figcaption></figure>'}).join('');
+var lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbCap=document.getElementById('lbCap');
+g.addEventListener('click',function(e){var f=e.target.closest('figure');if(!f)return;var x=GALERI[f.getAttribute('data-i')];lbImg.src='assets/foto/'+x.f;lbImg.alt=x.c;lbCap.textContent=x.c;lb.classList.add('open')});
+function closeLb(){lb.classList.remove('open')}document.getElementById('lbClose').addEventListener('click',closeLb);lb.addEventListener('click',function(e){if(e.target===lb)closeLb()});document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+document.getElementById('videos').innerHTML=VIDEO.map(function(v){var inner='<div class="frame"><svg><use href="#i-play"/></svg></div><div class="body"><b>'+esc(v.t)+'</b><br><span class="muted">'+esc(v.d)+'</span></div>';return v.u?'<a class="video" href="'+esc(v.u)+'" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">'+inner+'</a>':'<div class="video">'+inner+'</div>'}).join('');
+/* ---------- misc ---------- */
+document.getElementById('thn').textContent=new Date().getFullYear();
+var b=document.getElementById('menuBtn'),nv=document.getElementById('navLinks');
+b.addEventListener('click',function(){var o=nv.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false')});
+nv.addEventListener('click',function(e){if(e.target.tagName==='A'){nv.classList.remove('open');b.setAttribute('aria-expanded','false')}});
+</script>
+
+</body>
+</html>
